@@ -1,11 +1,10 @@
+package com.company;
+
 import java.util.Random;
 
 public class MetodoBurbuja {
     int randomArray[] = null;
     int pos1; int pos2; boolean ascendente;
-
-    public static void main(String[] args){}
-    MetodoBurbuja bur = new MetodoBurbuja();
 
     public MetodoBurbuja(){
     }
@@ -38,21 +37,21 @@ public class MetodoBurbuja {
                 }
             }
     }
-public void mostrar(){
-    int i;
-    System.out.println("Array desordenado:\t");
-    for (i = 0; i < randomArray.length + 1; i++){
-        System.out.println(randomArray[i] + ",");
-    }
-    System.out.println("\nArray ordenado de menor a mayor:\t");
-for (pos1 = 1; pos1 < randomArray.length + 1; pos1++ ){
-    ordenar(true);
-    System.out.println(randomArray[pos2] + ",");
-}
-System.out.println("\nArray ordenado de mayor a menor:\t");
-for (pos1 = 1; pos1 < randomArray.length + 1; pos1 ++){
-    ordenar(false);
-    System.out.println(randomArray[pos2] + ",");
-}
+    public void mostrar(){
+        int i;
+        System.out.println("Array desordenado:\t");
+        for (i = 0; i < randomArray.length + 1; i++){
+            System.out.println(randomArray[i] + ",");
+        }
+        System.out.println("\nArray ordenado de menor a mayor:\t");
+        for (pos1 = 1; pos1 < randomArray.length + 1; pos1++ ){
+            ordenar(true);
+            System.out.println(randomArray[pos2] + ",");
+        }
+        System.out.println("\nArray ordenado de mayor a menor:\t");
+        for (pos1 = 1; pos1 < randomArray.length + 1; pos1 ++){
+            ordenar(false);
+            System.out.println(randomArray[pos2] + ",");
+        }
     }
 }
