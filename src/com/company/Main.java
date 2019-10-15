@@ -10,8 +10,6 @@ public class Main {
         int[] arreglo1 = new int[100];
         int[] arreglo2 = new int[100];
 
-
-
         for (int i = 0; i<arreglo1.length;i++){
             int temp = (int)(Math.random()*99)+1;
             arreglo1[i] = temp;
@@ -23,23 +21,23 @@ public class Main {
 
         Timer timer = new Timer();
 
-        System.out.println("-----------------MERGE SORT-----------------");
-        for (int i = 0; i < arreglo1.length; i++) {
-            long Time = System.currentTimeMillis();
-            System.out.print(arreglo1[i]+", ");
-            System.out.println(Time+" Miliseconds");
-
-        }
-
-
+        // Algoritmo de ordenamiento burbuja
         System.out.println("------------------BUBBLE SORT--------------");
         for (int i = 0; i< arreglo2.length;i++){
-            long TIME = System.currentTimeMillis();
+            long Tiempo = System.currentTimeMillis();
             System.out.print(arreglo2[i]+", ");
-            System.out.println(TIME+" Miliseconds");
+            System.out.println(Tiempo+" Miliseconds");
         }
-    }
+        // Algoritmo de ordenamiento por fusion
+        System.out.println("-----------------MERGE SORT-----------------");
+        for (int i = 0; i < arreglo1.length; i++) {
+            long Tiempo = System.currentTimeMillis();
+            System.out.print(arreglo1[i]+", ");
+            System.out.println(Tiempo+" Miliseconds");
 
+        }
+
+    }
 
     public static int[] bubbleSort(int[] arr){
 
@@ -56,32 +54,28 @@ public class Main {
     }
 
     public  static int[] mergeSort(int[] arr){
-        //caso base.
+
         if(arr.length <= 1){
             return arr;
         }
-        // caso recursivo.
 
-        int medio = arr.length /2;
+        int means = arr.length /2;
 
-        int[] inferior = new int[medio];
-        int[] superior = new int[arr.length - medio];
-        for (int i = 0; i < medio; i++) {
-            inferior[i] = arr[i];
+        int[] lower = new int[means];
+        int[] higher = new int[arr.length - means];
+        for (int i = 0; i < means; i++) {
+            lower[i] = arr[i];
         }
 
-        for (int i = 0; i < superior.length ; i++) {
-            superior[i] = arr[i + inferior.length];
+        for (int i = 0; i < higher.length ; i++) {
+            higher[i] = arr[i + lower.length];
         }
-        return  merge(mergeSort(inferior), mergeSort(superior));
+        return  merge(mergeSort(lower), mergeSort(higher));
     }
-
 
     public static int[] merge(int[] a, int[] b){
         int[] retval = new int[a.length+ b.length];
-        int i = 0;
-        int j = 0;
-        int k = 0;
+        int i = 0; int j = 0; int k = 0;
         while (j < a.length && k < b.length ){
             if(a[j] < b[k]){
                 retval[i++] = a[j++];
@@ -101,4 +95,4 @@ public class Main {
 
     }
     }
-}
+
