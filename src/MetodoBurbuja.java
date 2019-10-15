@@ -10,8 +10,8 @@ public class MetodoBurbuja {
     public MetodoBurbuja(){
     }
     public void crearArray(){
-        int numeros = 40;
-        randomArray = new int[20];
+        int numeros = 10;
+        randomArray = new int[5];
         for (int i = 0; i < randomArray.length; i++){
             Random ran = new Random();
             int numerosRandom = ran.nextInt(numeros + 1);
@@ -40,19 +40,19 @@ public class MetodoBurbuja {
     }
 public void mostrar(){
     int i;
-    System.out.println("Array desordenado:\t");
+    System.out.print("Array desordenado:\t");
     for (i = 0; i < randomArray.length + 1; i++){
-        System.out.println(randomArray[i] + ",");
+        System.out.print(randomArray[i] + ",");
     }
-    System.out.println("\nArray ordenado de menor a mayor:\t");
+    System.out.print("\nArray ordenado de menor a mayor:\t");
 for (pos1 = 1; pos1 < randomArray.length + 1; pos1++ ){
     ordenar(true);
-    System.out.println(randomArray[pos2] + ",");
+    System.out.print(randomArray[pos2] + ",");
 }
 System.out.println("\nArray ordenado de mayor a menor:\t");
 for (pos1 = 1; pos1 < randomArray.length + 1; pos1 ++){
     ordenar(false);
-    System.out.println(randomArray[pos2] + ",");
+    System.out.print(randomArray[pos2] + ",");
 }
     }
 }
