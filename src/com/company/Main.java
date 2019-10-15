@@ -5,40 +5,6 @@ import java.util.Timer;
 
 public class Main {
 
-    public static void main(String[] args) {
-      //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
-        int[] arreglo1 = new int[100];
-        int[] arreglo2 = new int[100];
-
-        for (int i = 0; i<arreglo1.length;i++){
-            int temp = (int)(Math.random()*99)+1;
-            arreglo1[i] = temp;
-            arreglo2[i] = temp;
-        }
-
-        arreglo1 = mergeSort(arreglo1);
-        arreglo2 = bubbleSort(arreglo1);
-
-        Timer timer = new Timer();
-
-        // Algoritmo de ordenamiento burbuja
-        System.out.println("------------------BUBBLE SORT--------------");
-        for (int i = 0; i< arreglo2.length;i++){
-            long Tiempo = System.currentTimeMillis();
-            System.out.print(arreglo2[i]+", ");
-            System.out.println(Tiempo+" Miliseconds");
-        }
-        // Algoritmo de ordenamiento por fusion
-        System.out.println("-----------------MERGE SORT-----------------");
-        for (int i = 0; i < arreglo1.length; i++) {
-            long Tiempo = System.currentTimeMillis();
-            System.out.print(arreglo1[i]+", ");
-            System.out.println(Tiempo+" Miliseconds");
-
-        }
-
-    }
-
     public static int[] bubbleSort(int[] arr){
 
         for (int i = 0; i < arr.length; i++) {
@@ -92,7 +58,41 @@ public class Main {
             retval[i++] = b[k++];
         }
         return retval;
+    }
+
+    public static void main(String[] args) {
+      //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
+        int[] arreglo1 = new int[100];
+        int[] arreglo2 = new int[100];
+
+        for (int i = 0; i<arreglo1.length;i++){
+            int exa = (int)(Math.random()*99)+1;
+            arreglo1[i] = exa;
+            arreglo2[i] = exa;
+        }
+
+        arreglo1 = mergeSort(arreglo1);
+        arreglo2 = bubbleSort(arreglo1);
+
+        Timer timer = new Timer();
+
+        // Algoritmo de ordenamiento burbuja
+        System.out.println("BUBBLE SORT");
+        for (int i = 0; i< arreglo2.length;i++){
+            long Tiempo = System.currentTimeMillis();
+            System.out.print(arreglo2[i]+", ");
+            System.out.println(Tiempo+" Miliseconds");
+        }
+        // Algoritmo de ordenamiento por fusion
+        System.out.println("MERGE SORT");
+        for (int i = 0; i < arreglo1.length; i++) {
+            long Tiempo = System.currentTimeMillis();
+            System.out.print(arreglo1[i]+", ");
+            System.out.println(Tiempo+" Miliseconds");
+
+        }
 
     }
+
     }
 
