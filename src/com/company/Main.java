@@ -62,8 +62,8 @@ public class Main {
 
     public static void main(String[] args) {
       //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
-        int[] arreglo1 = new int[1000];
-        int[] arreglo2 = new int[1000];
+        int[] arreglo1 = new int[1];
+        int[] arreglo2 = new int[1];
 
         for (int i = 0; i < arreglo1.length; i++){
             int exa = (int)(Math.random()*99)+1;
@@ -80,16 +80,18 @@ public class Main {
         System.out.println("Tiempo de ejecucionn --- BUBBLE SORT---");
         for (int i = 0; i < arreglo2.length; i++){
             long Tiempo = System.currentTimeMillis();
+            long Time = System.nanoTime();
             System.out.print(arreglo2[i]+", ");
-            System.out.println(Tiempo+" Milisegundos");
+            System.out.println(Tiempo+" Milisegundos, " + Time + " Nanosegudos");
         }
 
         // Algoritmo de ordenamiento por fusion
         System.out.println("Tiempo de ejecucion de --- MERGE SORT ---");
         for (int i = 0; i < arreglo1.length; i++) {
             long Tiempo = System.currentTimeMillis();
+            long Time = System.nanoTime();
             System.out.print(arreglo1[i]+", ");
-            System.out.println(Tiempo+" Milisegundos");
+            System.out.println(Tiempo+" Milisegundos, " + Time + " Nanosegundos");
 
         }
 
