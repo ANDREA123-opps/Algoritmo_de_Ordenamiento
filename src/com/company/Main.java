@@ -65,14 +65,14 @@ public class Main {
         int[] arreglo1 = new int[100000];
         int[] arreglo2 = new int[100000];
 
-        for (int i = 0; i < arreglo1.length; i++){
+        for (int i = 0; i < arreglo2.length; i++){
             int exa = (int)(Math.random()*99)+1;
             arreglo1[i] = exa;
             arreglo2[i] = exa;
         }
 
-        arreglo1 = mergeSort(arreglo1);
-        arreglo2 = bubbleSort(arreglo1);
+       // arreglo1 = mergeSort(arreglo1);
+        arreglo2 = bubbleSort(arreglo2);
 
         Timer timer = new Timer();
 
@@ -90,8 +90,9 @@ public class Main {
             long Time = System.nanoTime();
             System.out.print(arreglo1[i]+", ");
             System.out.println(Time + " Nanosegundos");
+            }
 
-        }
+
 
     }
 
