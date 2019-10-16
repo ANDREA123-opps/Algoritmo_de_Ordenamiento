@@ -62,8 +62,8 @@ public class Main {
 
     public static void main(String[] args) {
       //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
-        int[] arreglo1 = new int[50000];
-        int[] arreglo2 = new int[50000];
+        int[] arreglo1 = new int[5000];
+        int[] arreglo2 = new int[5000];
 
         for (int i = 0; i < arreglo1.length; i++){
             int exa = (int)(Math.random()*99)+1;
