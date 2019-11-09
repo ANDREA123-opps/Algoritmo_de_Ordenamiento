@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Timer;
 
@@ -61,6 +62,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
+
+        // ALGORITMO HEAPSORT
+        int []arr = {0};
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+
+        long start = System.currentTimeMillis();
+      //  System.out.println("Heapsort take" + (end - st));
       //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
         int[] arreglo1 = new int[100000];
         int[] arreglo2 = new int[100000];
@@ -71,7 +79,7 @@ public class Main {
             arreglo2[i] = exa;
         }
 
-       // arreglo1 = mergeSort(arreglo1);
+        arreglo1 = mergeSort(arreglo1);
         arreglo2 = bubbleSort(arreglo2);
 
         Timer timer = new Timer();
@@ -80,15 +88,15 @@ public class Main {
         System.out.println("Tiempo de ejecucionn --- BUBBLE SORT---");
         for (int i = 0; i < arreglo2.length; i++){
             long Time = System.nanoTime();
-            System.out.print(arreglo2[i]+", ");
-            System.out.println(Time + " Nanosegudos");
+            //System.out.print(arreglo2[i]+", ");
+            System.out.println(Time + " Nanosegundos");
         }
 
         // Algoritmo de ordenamiento por fusion
         System.out.println("Tiempo de ejecucion de --- MERGE SORT ---");
         for (int i = 0; i < arreglo1.length; i++) {
             long Time = System.nanoTime();
-            System.out.print(arreglo1[i]+", ");
+          //  System.out.print(arreglo1[i]+", ");
             System.out.println(Time + " Nanosegundos");
             }
 
