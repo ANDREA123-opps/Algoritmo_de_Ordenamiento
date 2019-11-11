@@ -6,7 +6,7 @@ import java.util.Timer;
 
 public class Main {
 
-    public static int[] bubbleSort(int[] arr){
+    /*public static int[] bubbleSort(int[] arr){
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr.length; j++) {
@@ -18,7 +18,8 @@ public class Main {
             }
         }
         return arr;
-    }
+    }*/
+
 
     public  static int[] mergeSort(int[] arr){
 
@@ -64,12 +65,19 @@ public class Main {
     public static void main(String[] args) {
 
         // ALGORITMO HEAPSORT
+        long start = System.currentTimeMillis();
         int []arr = {0};
         PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int anArr; arr){
+            queue.add(anArr);
+        }
+        for (int i = 0; !queue.isEmpty() ; i++) {
+            arr[i] = queue.remove(i);
 
-        long start = System.currentTimeMillis();
+        }
+
       //  System.out.println("Heapsort take" + (end - st));
-      //  ALGORITMO DE ORDENAMIENTO BURBUJA Y FUSION
+      //  ALGORITMO DE ORDENAMIENTO HeapSort Y MergeSort
         int[] arreglo1 = new int[100000];
         int[] arreglo2 = new int[100000];
 
@@ -80,22 +88,22 @@ public class Main {
         }
 
         arreglo1 = mergeSort(arreglo1);
-        arreglo2 = bubbleSort(arreglo2);
+        arreglo2 = heapSort(arreglo2);
 
         Timer timer = new Timer();
 
-        // Algoritmo de ordenamiento burbuja
+        /*/ Algoritmo de ordenamiento burbuja
         System.out.println("Tiempo de ejecucionn --- BUBBLE SORT---");
         for (int i = 0; i < arreglo2.length; i++){
-            long Time = System.nanoTime();
+            long Time = System.currentTimeMillis();
             //System.out.print(arreglo2[i]+", ");
             System.out.println(Time + " Nanosegundos");
-        }
+        }*/
 
         // Algoritmo de ordenamiento por fusion
         System.out.println("Tiempo de ejecucion de --- MERGE SORT ---");
         for (int i = 0; i < arreglo1.length; i++) {
-            long Time = System.nanoTime();
+            long Time = System.currentTimeMillis();
           //  System.out.print(arreglo1[i]+", ");
             System.out.println(Time + " Nanosegundos");
             }
