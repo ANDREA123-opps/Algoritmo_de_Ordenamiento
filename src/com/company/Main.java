@@ -38,9 +38,8 @@ public class Main {
         }
     }
 
-    public static void heapSort(int[]n, int a){
+    public static void heapSort(int[]arr, int a){
         int i;
-        int arr[] = { 1, 3, 4, 5, 2 };
 
         System.out.println("\nHeap Sort\n---------------");
         System.out.println("\nUnsorted Array\n---------------");
@@ -111,19 +110,18 @@ public class Main {
         array[0] = array[arr_ubound];
         array[arr_ubound] = temp;
         return;
-
     }
 
     public static void main(String[] args) {
 
-        int arreglo1[] = new int[100000]; //Tamaño del arreglo
-        int arreglo2[] = new int[100000];
+        //Tamaño del arreglo
+        int arreglo2[] = new int[10];
+        int arr[] = new int[10];
 
         Random random = new Random();
-        for (int j = 0; j < arreglo1.length; j++) {
-            arreglo1[j] = random.nextInt();
+        for (int j = 0; j < arreglo2.length; j++) {
+            arreglo2[j] = random.nextInt();
         }
-
 
         ////////////////////////////////////////////////////////////////////////////////
         System.out.println("Arreglo Merge Sort");
@@ -140,8 +138,23 @@ public class Main {
         }
         System.out.println();
         System.out.println("El tiempo de ejecucuión del merge sort es: "+ (( Fin - Inicio )/1e-6)+" milisegundos");
+
+        ////////////////////////////////////////////////////////////////////////////////
+        System.out.println("Arreglo HeapSort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        Long inicio = System.nanoTime();
+        heapSort(arr,arr.length);//sorting array elements using merge sort
+        Long fin = System.nanoTime();
+        System.out.println("Array After Merge Sort");
+        for(int i=0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        System.out.println("El tiempo de ejecucuión del heapsort es: "+ (( fin - inicio )/1e-6)+" milisegundos");
+    }
     }
 
 
-
-}
