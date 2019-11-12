@@ -40,30 +40,17 @@ public class Main {
 
     public static void heapSort(int[]arr, int a){
         int i;
-
-        System.out.println("\nHeap Sort\n---------------");
-        System.out.println("\nUnsorted Array\n---------------");
-
-        for (i = 0; i < arr.length; i++){
+        /*for (i = 0; i < arr.length; i++){
 
             System.out.print(" " + arr[i]);
-
-        }
-
+        }*/
         for (i = arr.length; i > 1; i--) {
 
             fnSortHeap(arr, i - 1);
-
         }
-
-        System.out.println("\n\nSorted array\n---------------");
-
-        for (i = 0; i < arr.length; i++){
-
+        /*for (i = 0; i < arr.length; i++){
             System.out.print(" " + arr[i]);
-
-        }
-
+        }*/
     }
 
     public static void fnSortHeap(int array[], int arr_ubound) {
@@ -74,34 +61,26 @@ public class Main {
         root = (arr_ubound - 1) / 2;
 
         for (o = root; o >= 0; o--) {
-
             for (i = root; i >= 0; i--) {
-
                 lChild = (2 * i) + 1;
                 rChild = (2 * i) + 2;
 
                 if ((lChild <= arr_ubound) && (rChild <= arr_ubound)) {
-
                     if (array[rChild] >= array[lChild])
                         mChild = rChild;
                     else
                         mChild = lChild;
-
                 } else {
-
                     if (rChild > arr_ubound)
                         mChild = lChild;
                     else
                         mChild = rChild;
-
                 }
 
                 if (array[i] < array[mChild]) {
-
                     temp = array[i];
                     array[i] = array[mChild];
                     array[mChild] = temp;
-
                 }
             }
         }
@@ -115,45 +94,40 @@ public class Main {
     public static void main(String[] args) {
 
         //Tamaño del arreglo
-        int arreglo2[] = new int[10];
-        int arr[] = new int[10];
+        int arreglo2[] = new int[1];
+        int arr[] = new int[arreglo2.length];
 
         Random random = new Random();
         for (int j = 0; j < arreglo2.length; j++) {
             arreglo2[j] = random.nextInt();
         }
-
-        ////////////////////////////////////////////////////////////////////////////////
-        System.out.println("Arreglo Merge Sort");
-        for(int i=0; i < arreglo2.length; i++){
-            System.out.print(arreglo2[i] + " ");
+        for (int j = 0; j < arr.length; j++) {
+            arr[j] = random.nextInt();
         }
+        ///Metodo HeapSort///
         System.out.println();
-        Long Inicio = System.nanoTime();
-        mergeSort(arreglo2,arreglo2.length);//sorting array elements using merge sort
-        Long Fin = System.nanoTime();
-        System.out.println("Array After Merge Sort");
-        for(int i=0; i < arreglo2.length; i++){
-            System.out.print(arreglo2[i] + " ");
-        }
+        Long inicio = System.nanoTime();
+        heapSort(arr,arr.length);
+        Long fin = System.nanoTime();
         System.out.println();
-        System.out.println("El tiempo de ejecucuión del merge sort es: "+ (( Fin - Inicio )/1e-6)+" milisegundos");
-
-        ////////////////////////////////////////////////////////////////////////////////
         System.out.println("Arreglo HeapSort");
         for(int i=0; i < arr.length; i++){
             System.out.print(arr[i] + " ");
         }
         System.out.println();
-        Long inicio = System.nanoTime();
-        heapSort(arr,arr.length);//sorting array elements using merge sort
-        Long fin = System.nanoTime();
-        System.out.println("Array After Merge Sort");
-        for(int i=0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
+        System.out.println("El tiempo de ejecucuión del HeapSort es: "+ (( fin - inicio )/0.000001)+" milisegundos");
+        ///Metodo MergeSort///
+        System.out.println();
+        Long Inicio = System.nanoTime();
+        mergeSort(arreglo2,arreglo2.length);
+        Long Fin = System.nanoTime();
+        System.out.println("Arreglo MergeSort");
+        for(int i=0; i < arreglo2.length; i++){
+            System.out.print(arreglo2[i] + " ");
         }
         System.out.println();
-        System.out.println("El tiempo de ejecucuión del heapsort es: "+ (( fin - inicio )/1e-6)+" milisegundos");
+        System.out.println("El tiempo de ejecucuión del MergeSort es: "+ (( Fin - Inicio )/0.000001)+" milisegundos");
+
     }
     }
 
