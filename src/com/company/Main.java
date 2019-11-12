@@ -2,61 +2,6 @@ package com.company;
 import java.util.Random;
 public class Main {
 
-    public static void main(String[] args) {
-        // write your code here
-        int arr[] = new int[100000];
-        int arr2[] = new int[arr.length];
-        Random random = new Random();
-        for (int j = 0; j < arr.length; j++) {
-            arr[j] = random.nextInt();
-        }
-        System.arraycopy(arr,0,arr2,0,arr.length);
-        System.out.println("Array Before Bubble Sort");
-        for(int i=0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-        Long t0 = System.nanoTime();
-        bubbleSort(arr);//sorting array elements using bubble sort
-        Long t1 = System.nanoTime();
-        System.out.println("Array After Bubble Sort");
-        for(int i=0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-        System.out.println("El tiempo de ejecucuión del bubble sort es: "+ (( t1 - t0 )/1e-6)+" milisegundos");
-        System.out.println("////////////////////////////////////////////////////////////////////////////////////////");
-
-        ////////////////////////////////////////////////////////////////////////////////
-        System.out.println("Array Before Merge Sort");
-        for(int i=0; i < arr2.length; i++){
-            System.out.print(arr2[i] + " ");
-        }
-        System.out.println();
-        Long ti = System.nanoTime();
-        mergeSort(arr2,arr2.length);//sorting array elements using merge sort
-        Long tf = System.nanoTime();
-        System.out.println("Array After Merge Sort");
-        for(int i=0; i < arr2.length; i++){
-            System.out.print(arr2[i] + " ");
-        }
-        System.out.println();
-        System.out.println("El tiempo de ejecucuión del bubble sort es: "+ (( tf - ti )/1e-6)+" milisegundos");
-    }
-
-
-    public static int[] bubbleSort(int[] arr){
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                if(arr[i]< arr[j]){
-                    int temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                }
-            }
-        }
-        return arr;
-    }
     public static void mergeSort(int[] a, int n) {
         if (n < 2) {
             return;
@@ -75,9 +20,9 @@ public class Main {
         merge(a, l, r, mid, n - mid);
     }
     public static void merge(
-            int[] a, int[] l, int[] r, int left, int right) {
+            int[] a, int[] l, int[] r, int izq, int der) {
         int i = 0, j = 0, k = 0;
-        while (i < left && j < right) {
+        while (i < izq && j < der) {
             if (l[i] <= r[j]) {
                 a[k++] = l[i++];
             }
@@ -85,11 +30,118 @@ public class Main {
                 a[k++] = r[j++];
             }
         }
-        while (i < left) {
+        while (i < izq) {
             a[k++] = l[i++];
         }
-        while (j < right) {
+        while (j < der) {
             a[k++] = r[j++];
         }
     }
+
+    public static void heapSort(int[]n, int a){
+        int i;
+        int arr[] = { 1, 3, 4, 5, 2 };
+
+        System.out.println("\nHeap Sort\n---------------");
+        System.out.println("\nUnsorted Array\n---------------");
+
+        for (i = 0; i < arr.length; i++){
+
+            System.out.print(" " + arr[i]);
+
+        }
+
+        for (i = arr.length; i > 1; i--) {
+
+            fnSortHeap(arr, i - 1);
+
+        }
+
+        System.out.println("\n\nSorted array\n---------------");
+
+        for (i = 0; i < arr.length; i++){
+
+            System.out.print(" " + arr[i]);
+
+        }
+
+    }
+
+    public static void fnSortHeap(int array[], int arr_ubound) {
+
+        int i, o;
+        int lChild, rChild, mChild, root, temp;
+
+        root = (arr_ubound - 1) / 2;
+
+        for (o = root; o >= 0; o--) {
+
+            for (i = root; i >= 0; i--) {
+
+                lChild = (2 * i) + 1;
+                rChild = (2 * i) + 2;
+
+                if ((lChild <= arr_ubound) && (rChild <= arr_ubound)) {
+
+                    if (array[rChild] >= array[lChild])
+                        mChild = rChild;
+                    else
+                        mChild = lChild;
+
+                } else {
+
+                    if (rChild > arr_ubound)
+                        mChild = lChild;
+                    else
+                        mChild = rChild;
+
+                }
+
+                if (array[i] < array[mChild]) {
+
+                    temp = array[i];
+                    array[i] = array[mChild];
+                    array[mChild] = temp;
+
+                }
+            }
+        }
+
+        temp = array[0];
+        array[0] = array[arr_ubound];
+        array[arr_ubound] = temp;
+        return;
+
+    }
+
+    public static void main(String[] args) {
+
+        int arreglo1[] = new int[100000]; //Tamaño del arreglo
+        int arreglo2[] = new int[100000];
+
+        Random random = new Random();
+        for (int j = 0; j < arreglo1.length; j++) {
+            arreglo1[j] = random.nextInt();
+        }
+
+
+        ////////////////////////////////////////////////////////////////////////////////
+        System.out.println("Arreglo Merge Sort");
+        for(int i=0; i < arreglo2.length; i++){
+            System.out.print(arreglo2[i] + " ");
+        }
+        System.out.println();
+        Long Inicio = System.nanoTime();
+        mergeSort(arreglo2,arreglo2.length);//sorting array elements using merge sort
+        Long Fin = System.nanoTime();
+        System.out.println("Array After Merge Sort");
+        for(int i=0; i < arreglo2.length; i++){
+            System.out.print(arreglo2[i] + " ");
+        }
+        System.out.println();
+        System.out.println("El tiempo de ejecucuión del merge sort es: "+ (( Fin - Inicio )/1e-6)+" milisegundos");
+    }
+
+
+
 }
