@@ -94,7 +94,7 @@ public class Main {
     public static void main(String[] args) {
 
         //Tamaño del arreglo
-        int arreglo2[] = new int[1];
+        int arreglo2[] = new int[50000];
         int arr[] = new int[arreglo2.length];
 
         Random random = new Random();
